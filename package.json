@@ -1,0 +1,57 @@
+{
+  "name": "egg-tcp-framework",
+  "version": "1.0.0",
+  "description": "一套自定义协议的tcp框架，按照协议规范，实现了router、middlware、DTO、自定义错误等机制。框架底层依托eggjs，主要是为了减免一些底层的开发工作。",
+  "private": true,
+  "author": "Knows",
+  "license": "MIT",
+  "egg": {
+    "declarations": true
+  },
+  "dependencies": {
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.11.0",
+    "egg": "^2.23.0",
+    "egg-scripts": "^2.6.0",
+    "extend": "^3.0.2",
+    "is-type-of": "^1.2.1",
+    "js-md5": "^0.7.3",
+    "lodash": "^4.17.15",
+    "reflect-metadata": "^0.1.13"
+  },
+  "scripts": {
+    "start": "set EGG_SERVER_ENV=prod && npm run tsc && egg-scripts start --workers=1 --ignore-stderr --daemon --port=7001 --title=egg-tcp-framework",
+    "stop": "egg-scripts stop --title=egg-tcp-framework",
+    "dev": "egg-bin dev --ts --port=7001",
+    "debug": "egg-bin debug",
+    "test-local": "egg-bin test --ts",
+    "test": "npm run lint --fix && npm run test-local",
+    "cov": "egg-bin cov",
+    "ets": "npx ets",
+    "tsc": "ets && tsc -p tsconfig.json",
+    "ci": "npm run lint && npm run cov && npm run tsc",
+    "autod": "autod",
+    "lint": "tslint --project . -c tslint.json",
+    "clean": "ets clean"
+  },
+  
+  "devDependencies": {
+    "@types/node": "^7.10.5",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg-bin": "^4.13.1",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^3.16.0",
+    "egg-ts-helper": "^1.25.5",
+    "tslib": "^1.9.0",
+    "tslint": "^5.0.0",
+    "tslint-config-egg": "^1.0.0",
+    "typescript": "^3.7.4"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "ci": {
+    "version": "8"
+  }
+}
